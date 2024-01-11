@@ -1,11 +1,13 @@
 package com.heccubernny.tests.Respositories;
 
-// import static org.junit.Assert.*;
+import org.junit.Test;
+
+import com.heccubernny.models.Course;
 
 public class StudentTest {
-    // @Test
-    public void test() {
-        System.out.println("Student");
+    @Test
+    public void testTakeCourse(Course course) {
+        assert("ddd", "Mr John is taking Mathematics course.");
     }
 
 }
