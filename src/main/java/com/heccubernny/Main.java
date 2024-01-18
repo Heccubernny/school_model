@@ -3,6 +3,11 @@ package com.heccubernny;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.heccubernny.models.Applicant;
+import com.heccubernny.models.Course;
+import com.heccubernny.models.School;
+import com.heccubernny.models.Student;
+import com.heccubernny.models.Teacher;
 import com.heccubernny.services.ApplicantService;
 import com.heccubernny.services.CourseService;
 import com.heccubernny.services.NonAcademicStaffService;
@@ -11,57 +16,90 @@ import com.heccubernny.services.SchoolClassService;
 import com.heccubernny.services.SchoolService;
 import com.heccubernny.services.StudentService;
 import com.heccubernny.services.TeacherService;
+import com.heccubernny.services.implementations.ApplicantServiceImplementation;
+import com.heccubernny.services.implementations.CourseServiceImlementation;
+import com.heccubernny.services.implementations.NonAcademicStaffServiceImplementation;
+import com.heccubernny.services.implementations.PrincipalServiceImplementation;
+import com.heccubernny.services.implementations.SchoolClassServiceImplementation;
+import com.heccubernny.services.implementations.SchoolServiceImplementation;
+import com.heccubernny.services.implementations.StudentServiceImplementation;
+import com.heccubernny.services.implementations.TeacherServiceImplementation;
 
 public class Main {
 
     // Dependencies inversions
-    TeacherService teacherService;
-    StudentService studentService;
-    SchoolService schoolService;
-    SchoolClassService schoolClassService;
-    PrincipalService principalService;
-    NonAcademicStaffService nonAcademicStaffService;
-    CourseService courseService;
-    ApplicantService applicantService;
-
     public static void main(String[] args) {
+        // Service implementation
+        PrincipalService principalService = new PrincipalServiceImplementation();
+        TeacherService teacherService = new TeacherServiceImplementation();
+        StudentService studentService = new StudentServiceImplementation();
+        SchoolService schoolService = new SchoolServiceImplementation();
+        SchoolClassService schoolClassService = new SchoolClassServiceImplementation();
+        NonAcademicStaffService nonAcademicStaffService = new NonAcademicStaffServiceImplementation();
+        CourseService courseService = new CourseServiceImlementation();
+        ApplicantService applicantService = new ApplicantServiceImplementation();
 
-        // Course[] courses = new Course[3];
+        // Entity implementation
+        Student student1 = new Student();
+        Applicant applicant1 = new Applicant();
+        Course course = new Course();
+        Teacher teacher = new Teacher();
 
-        // Course course1 = new Course();
-        // course1.setName("Mathematics");
-        // courses[0] = course1;
+        course.setName("Yoruba");
 
-        // Course course2 = new Course();
-        // course2.setName("Physics");
-        // courses[1] = course2;
+        student1.setName("Adewale");
+        student1.setAge(12);
 
-        // Course course3 = new Course();
-        // course3.setName("English");
-        // courses[2] = course3;
+        applicant1.setId(22);
+        teacher.setName("Mr Magos");
+        teacher.setAge(54);
 
-        // Teacher teacher = new Teacher();
-        // teacher.setName("Mr John");
-        // teacher.setAge(30);
-        // teacher.teachCourse(course2);
+        // method implementation
+        principalService.canExpelStudent(student1);
 
-        // TeacherService teacherService = new Teacher();
+        boolean submitApplication = applicantService.submitApplication(applicant1);
 
-        // Student student = new Student();
-        // student.setName("Michealson Ray");
-        // student.setAge(11);
+        // printed result
+        System.out.println(submitApplication);
 
-        // School school = new School();
-        // school.addCourse(course1);
-        // school.addCourse(course2);
-        // school.addCourse(course3);
+        System.out
+                .printf("Student with name %s and age %d are expelled\n", student1.getName(), student1.getAge());
+        System.out.printf("This is the %s name\n",
+                course.getName());
 
-        // // create a list of students and add the students to it
-        // List<Student> students = new ArrayList<Student>();
-        // students.add(student);
+        studentService.takeCourse(course);
 
-        // // set the properties of the classes
-        // SchoolClass classes = new SchoolClass();
-        // classes.setTeacher(teacher);
+        Course[] courses = new Course[3];
+
+        Course course1 = new Course();
+        course1.setName("Mathematics");
+        courses[0] = course1;
+
+        Course course2 = new Course();
+        course2.setName("Physics");
+        courses[1] = course2;
+
+        Course course3 = new Course();
+        course3.setName("English");
+        courses[2] = course3;
+
+        teacher.setName("Mr John");
+        teacher.setAge(30);
+        teacherService.teachCourse(course2);
+
+        Student student = new Student();
+        student.setName("Michealson Ray");
+        student.setAge(11);
+
+        schoolService.addCourse(course1);
+        schoolService.addCourse(course2);
+        schoolService.addCourse(course3);
+
+        // create a list of students and add the students to it
+        List<Student> students = new ArrayList<Student>();
+        students.add(student);
+
+        // set the properties of the classes
+        schoolClassService.setTeacher(teacher);
     }
 }

@@ -30,6 +30,7 @@ public class SchoolServiceImplementation implements SchoolService {
         this.courses = new ArrayList<>();
     }
 
+    @Override
     public void addCourse(Course course) {
         this.courses.add(course);
     }

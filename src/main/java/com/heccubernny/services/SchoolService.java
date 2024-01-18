@@ -1,5 +1,7 @@
 package com.heccubernny.services;
 
-public interface SchoolService {
+import com.heccubernny.models.Course;
 
+public interface SchoolService {
+    void addCourse(Course course);
 }
