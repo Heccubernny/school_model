@@ -17,7 +17,7 @@ import com.heccubernny.services.SchoolService;
 import com.heccubernny.services.StudentService;
 import com.heccubernny.services.TeacherService;
 import com.heccubernny.services.implementations.ApplicantServiceImplementation;
-import com.heccubernny.services.implementations.CourseServiceImlementation;
+import com.heccubernny.services.implementations.CourseServiceImplementation;
 import com.heccubernny.services.implementations.NonAcademicStaffServiceImplementation;
 import com.heccubernny.services.implementations.PrincipalServiceImplementation;
 import com.heccubernny.services.implementations.SchoolClassServiceImplementation;
@@ -36,7 +36,7 @@ public class Main {
         SchoolService schoolService = new SchoolServiceImplementation();
         SchoolClassService schoolClassService = new SchoolClassServiceImplementation();
         NonAcademicStaffService nonAcademicStaffService = new NonAcademicStaffServiceImplementation();
-        CourseService courseService = new CourseServiceImlementation();
+        CourseService courseService = new CourseServiceImplementation();
         ApplicantService applicantService = new ApplicantServiceImplementation();
 
         // Entity implementation

@@ -5,4 +5,6 @@ import com.heccubernny.models.Teacher;
 public interface SchoolClassService {
 
     void setTeacher(Teacher teacher);
+
+    Teacher getTeacher(Teacher teacher);
 }

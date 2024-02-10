@@ -18,4 +18,11 @@ public class SchoolClassServiceImplementation implements SchoolClassService {
     public void setTeacher(Teacher teacher) {
         System.out.printf("%s was assigned to course \n", teacher.getName());
     }
+
+    @Override
+    public Teacher getTeacher(Teacher teacher) {
+        System.out.printf("Teacher %s is Assigned.\n", teacher.getName());
+
+        return teacher;
+    }
 }

@@ -1,29 +1,25 @@
 package com.heccubernny.services;
 
-import static org.junit.Assume.assumeTrue;
-
-import org.junit.Test;
-
 import com.heccubernny.models.Applicant;
 import com.heccubernny.services.implementations.ApplicantServiceImplementation;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
 public class ApplicantServiceTest {
 
     @Test
-    public void testSubmitApplication() {
-        Applicant applicant = new Applicant();
+    public void testSubmitApplicationWithValidApplicantId() {
+        ApplicantServiceImplementation service = new ApplicantServiceImplementation();
+        Applicant applicant = new Applicant("John", 10);
+        assertTrue(service.submitApplication(applicant));
+    }
 
-        applicant.setId(10);
-
-        int applicantId = applicant.getId();
-
-        ApplicantService applicantService = new ApplicantServiceImplementation();
-
-        applicantService.submitApplication(applicant);
-
-        Boolean result = (applicantId >= 12) ? false : true;
-
-        assumeTrue(result);
-
+    @Test
+    public void testSubmitApplicationWithInvalidApplicantId() {
+        ApplicantServiceImplementation service = new ApplicantServiceImplementation();
+        Applicant applicant = new Applicant("Ade", 15);
+        assertFalse(service.submitApplication(applicant));
     }
 }

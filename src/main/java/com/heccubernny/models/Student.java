@@ -2,7 +2,7 @@ package com.heccubernny.models;
 
 public class Student extends Person {
 
-    private String course;
+    private Course course;
 
     public Student(String name, int age) {
         super(name, age);
@@ -15,15 +15,19 @@ public class Student extends Person {
     /**
      * @return the course
      */
-    public String getCourse() {
-        return course;
+    public Course getCourse() {
+        return this.course;
     }
 
     /**
-     * @param course the course to set
+     * @param course2 the course to set
      */
-    public void setCourse(String course) {
+    public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public boolean offendSchoolSystem() {
+        return true;
     }
 
 }

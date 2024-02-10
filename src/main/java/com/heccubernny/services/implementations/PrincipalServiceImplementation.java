@@ -15,9 +15,11 @@ public class PrincipalServiceImplementation implements PrincipalService {
 
     @Override
     public void canExpelStudent(Student student) {
-        // if (student.offendSchoolSystem()) {
-        System.out.printf("Student %s expelled.\n", student.getName());
-        // }
+        if (student.offendSchoolSystem()) {
+            System.out.printf("Student %s expelled.\n", student.getName());
+        } else {
+            System.out.printf("Student %s not expelled.\n", student.getName());
+        }
     }
 
 }

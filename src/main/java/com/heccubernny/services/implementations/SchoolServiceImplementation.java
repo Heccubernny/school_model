@@ -14,9 +14,9 @@ import com.heccubernny.services.SchoolService;
 
 public class SchoolServiceImplementation implements SchoolService {
     // we can have multiple instances of the same class.
-    List<Student> students;
+    Student students;
     List<Teacher> teachers;
-    List<Course> courses;
+    Course courses;
     List<SchoolClass> classes;
     List<Applicant> applicants;
     List<NonAcademicStaff> nonAcademicStaffs;
@@ -27,12 +27,12 @@ public class SchoolServiceImplementation implements SchoolService {
     /**
      */
     public SchoolServiceImplementation() {
-        this.courses = new ArrayList<>();
+        this.students = new Student();
     }
 
     @Override
     public void addCourse(Course course) {
-        this.courses.add(course);
+        this.students.setCourse(course);
     }
 
 }
